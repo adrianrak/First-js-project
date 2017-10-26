@@ -1,0 +1,29 @@
+{
+  "name": "kodilla-js-exercise",
+  "version": "1.0.0",
+  "description": "Example js project",
+  "main": "index.js",
+  "scripts": {
+    "test": "kodilla-tet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianrak/First-js-project.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Adrian Rak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianrak/First-js-project/issues"
+  },
+  "homepage": "https://github.com/adrianrak/First-js-project#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0"
+  }
+}
