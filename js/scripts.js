@@ -1,6 +1,7 @@
 function getTriangleArea(a, h) {
     if ( (a <= 0) && (h <= 0) ) {
-        // console.log('Nieprawidłowe dane');
+        var incorrectData = 'Nieprawidłowe dane';
+        return incorrectData;
     } else {
         var result = a*h/2;
         return result;
