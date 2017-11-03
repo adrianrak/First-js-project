@@ -5,7 +5,7 @@ var allNames = femaleNames.concat(maleNames);
 var newName = 'Marian';
 
 if (allNames.indexOf(newName) === -1) {
-    var x = allNames.push(newName);
+    allNames.push(newName);
 } else {
     console.log('Powtórzone imię: ' + newName + '. Wpisz inne imię!');
 }
