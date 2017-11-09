@@ -1,8 +1,6 @@
 var newGameBtn = document.getElementById('js-newGameButton');
 newGameBtn.addEventListener('click', newGame);
 
-// player selection 
-
 var pickRock = document.getElementById('js-playerPick_rock');
 var pickPaper = document.getElementById('js-playerPick_paper');
 var pickScissors = document.getElementById('js-playerPick_scissors');
@@ -11,22 +9,32 @@ pickRock.addEventListener('click', function() { playerPick('rock') });
 pickPaper.addEventListener('click', function() { playerPick('paper') });
 pickScissors.addEventListener('click', function() { playerPick('scissors') });
 
+var newGameElem = document.getElementById('js-newGameElement');
+var pickElem = document.getElementById('js-playerPickElement');
+var resultsElem = document.getElementById('js-resultsTableElement');
+var endGameText = document.getElementById('js-gameEndText');
+
+var playerPointsElem = document.getElementById('js-playerPoints');
+var playerNameElem = document.getElementById('js-playerName');
+var computerPointsElem = document.getElementById('js-computerPoints');
+
+var playerPickElem = document.getElementById('js-playerPick');
+var computerPickElem = document.getElementById('js-computerPick');
+var playerResultElem = document.getElementById('js-playerResult');
+var computerResultElem = document.getElementById('js-computerResult');
+
 // initial values
 
-var gameState = 'notStarted',  //started // ended
-player = {
+var gameState = 'notStarted';  //started // ended
+var player = {
     name: '',
     score: 0
-},
-computer = {
+};
+var computer = {
     score: 0
 };
 
 //  display game elements
-
-var newGameElem = document.getElementById('js-newGameElement');
-var pickElem = document.getElementById('js-playerPickElement');
-var resultsElem = document.getElementById('js-resultsTableElement');
 
 function setGameElements() {
     switch(gameState) {
@@ -37,7 +45,7 @@ function setGameElements() {
         break;
         case 'ended':
             newGameBtn.innerText = 'Jeszcze raz';
-            
+    
         case 'notStarted':
         default:
             newGameElem.style.display = 'block';
@@ -48,10 +56,6 @@ function setGameElements() {
   setGameElements();
 
   //  start the game
-
-var playerPointsElem = document.getElementById('js-playerPoints');
-var playerNameElem = document.getElementById('js-playerName');
-var computerPointsElem = document.getElementById('js-computerPoints');
 
 function newGame() {
     player.name = prompt('Please enter your name', 'imię gracza');
@@ -71,11 +75,6 @@ function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
 }
-
-var playerPickElem = document.getElementById('js-playerPick');
-var computerPickElem = document.getElementById('js-computerPick');
-var playerResultElem = document.getElementById('js-playerResult');
-var computerResultElem = document.getElementById('js-computerResult');
 
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
@@ -109,7 +108,9 @@ function checkRoundWinner(playerPick, computerPick) {
         computer.score++;
     } 
     setGamePoints();
-    endGame();  
+    if (didGameEnd()) {
+        endGame();     
+    }
 }
 
 
@@ -131,14 +132,15 @@ function setGamePoints() {
 
 // game over
 
-function endGame() {
-    if (player.score == 10) {
-        alert(player.name +' is the winner!');
-        gameState = 'ended'
-    setGameElements();
-    } else if (computer.score == 10) {
-        alert('Computer is the winner!');
-        gameState = 'ended'
-    setGameElements();
+function didGameEnd() {
+    if (player.score === 10 || computer.score === 10) {
+        return true;
     }
+    return false;
+}
+function endGame() {
+    var winnerText = player.score === 10 ? player.name + ' is the winner!' : 'Computer is the winner!';
+    endGameText.innerText = winnerText;
+    gameState = 'ended';
+    setGameElements();
 }
