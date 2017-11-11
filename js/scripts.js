@@ -85,12 +85,17 @@ function playerPick(playerPick) {
 
 // game logic and scoring
 
-function checkRoundWinner(playerPick, computerPick) {
-    function resetResultDisplay() {
+function resetResultDisplay() {
         playerResultElem.innerHTML = computerResultElem.innerHTML = '';    
     }
+    
+function announceWinner(elementResultElem, winner) {
+    elementResultElem.innerHTML = "Win!";
+    winner.score++;
+}
+
+function checkRoundWinner(playerPick, computerPick) {
     resetResultDisplay()
-  
     var winnerIs = 'player';
   
     if (playerPick == computerPick) {
@@ -102,17 +107,13 @@ function checkRoundWinner(playerPick, computerPick) {
     
          winnerIs = 'computer';
     }
-
-    function announceWinner(elementResultElem, winner) {
-        elementResultElem.innerHTML = "Win!";
-        winner.score++;
-    }
-        if (winnerIs == 'player') {
-            announceWinner(playerResultElem, player);
-        } else if (winnerIs == 'computer') {
-            announceWinner(computerResultElem, computer);
-        }      
     
+    if (winnerIs == 'player') {
+        announceWinner(playerResultElem, player);
+    } else if (winnerIs == 'computer') {
+         announceWinner(computerResultElem, computer);
+    }      
+
     setGamePoints();
         if (didGameEnd()) {
         endGame();     
