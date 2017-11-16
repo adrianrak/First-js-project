@@ -1,21 +1,15 @@
 
-var ignored = ['#js-span1', '#js-span5'];
+var ignored = ['js-span1', 'js-span4'];
 
 var span = $('span');
 span.each(function(index, element) {
-    if (element !== ignored) {
+    var foundIgnored = ignored.indexOf(element.id);
+    
+    if (foundIgnored === -1) {
         $(element).css('color', 'red');
     };
 });
 
-
-/*var span = $('span');
-span.each(function(index, element) {
-    if (index % 2 === 0) {
-        $(element).css('color', 'red');
-    };
-});*/
-    // or $("span:even").css('color', 'red');
 
 var paragraphs = $('p');
 paragraphs.each(function(index, element) {
