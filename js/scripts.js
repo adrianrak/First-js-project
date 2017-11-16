@@ -1,20 +1,11 @@
 
 var ignored = ['#js-span1', '#js-span5'];
 
-    var span = $('span');
-// for (var span = 0 ; span < 3 ; span++) {
-//     $(span).css('color', 'red');
-// }   
-
-// console.log(ignored);
-// function red() {
-//     $(span).css('color', 'red');
-// }
-// red();
+var span = $('span');
 span.each(function(index, element) {
-    if (index == ['#js-span1']) {
+    if (element !== ignored) {
         $(element).css('color', 'red');
-    }
+    };
 });
 
 
