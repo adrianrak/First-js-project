@@ -1,7 +1,24 @@
 body {
     margin: 0 auto;
     padding: 0;
+    background-color: #24292E;
+}
+header {
+    color: #B3DDF1;
+    text-align: center;
+    background-color: #1D1F20;
+    padding: 20px;
+}
+header h1 {
+    margin-top: 0;
 }
 .column-container {
     display: flex;
+    justify-content: center;
+}
+.column {
+    width: 250px;
+    background-color: #B3DDF1;
+    margin: 8px;
+    border-radius: 5px;
 }
