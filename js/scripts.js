@@ -28,18 +28,21 @@ $(function() {
 			});
 			$columnAddCard.click(function() {
 				self.addCard(new Card(prompt('Enter the name of the card')));
+				// if (name != null){true};
 			});
-
+		
 			$column.append($columnTitle)
 					.append($columnDelete)
 					.append($columnAddCard)
 					.append($columnCardList);
 			return $column;
-		}
+		} 
 	}
 	Column.prototype = {
 		addCard: function(card) {
-			this.$element.children('ul').append(card.$element);
+			// if (this.name != null) {
+				this.$element.children('ul').append(card.$element);
+			// }
 		},
 		removeColumn: function() {
 			this.$element.remove();
@@ -92,7 +95,9 @@ $(function() {
 	$('.create-column').click(function() {
 		var name = prompt('Enter a column name');
 		var column = new Column(name);
-		board.addColumn(column);
+		if (name != null) {
+			board.addColumn(column);
+		}	
 	});
 
 	var todoColumn = new Column('To do');
