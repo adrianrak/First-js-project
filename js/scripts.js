@@ -28,9 +28,8 @@ $(function() {
 			});
 			$columnAddCard.click(function() {
 				var name = prompt('Enter the name of the card');
-				var description = new Card(name);
 				if (name != null) {
-					self.addCard(description);
+					self.addCard(new Card(name));
 				};
 			});
 		
