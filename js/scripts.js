@@ -27,8 +27,9 @@ $(function() {
 				self.removeColumn();
 			});
 			$columnAddCard.click(function() {
-				self.addCard(new Card(prompt('Enter the name of the card')));
-				// if (name != null){true};
+				if (prompt('Enter the name of the card') != null) {
+					self.addCard(new Card());
+				}
 			});
 		
 			$column.append($columnTitle)
@@ -40,9 +41,7 @@ $(function() {
 	}
 	Column.prototype = {
 		addCard: function(card) {
-			// if (this.name != null) {
 				this.$element.children('ul').append(card.$element);
-			// }
 		},
 		removeColumn: function() {
 			this.$element.remove();
