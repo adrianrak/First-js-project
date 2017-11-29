@@ -27,7 +27,9 @@ function Column(id, name) {
 				},
 				success: function(response) {
 					var card = new Card(response.id, cardName);
-					self.addCard(card);
+					if (cardName != null) {
+						self.addCard(card);
+					}		
 				}
 			});
 			// if (cardName != null) {

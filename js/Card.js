@@ -17,7 +17,7 @@ function Card(id, name) {
 	
 		$card.append($cardDelete)
 			.append($cardDescription);
-		cardDescription.text(self.name);
+		$cardDescription.text(self.name);
 		return $card;
 		}
 }
@@ -28,7 +28,7 @@ Card.prototype = {
 		  url: baseUrl + '/card/' + self.id,
 		  method: 'DELETE',
 		  success: function(){
-			self.element.remove();
+			self.$element.remove();
 		  }
 		});
 	}
