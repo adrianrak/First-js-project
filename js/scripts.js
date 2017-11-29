@@ -12,6 +12,7 @@ function searchCountries() {
 		success: showCountriesList
 	});
 }
+
 function showCountriesList(resp) {
 	countriesList.empty();
     resp.forEach(function(item) {
@@ -22,6 +23,5 @@ function showCountriesList(resp) {
 			$('<li>').text('language: ' + item.languages).appendTo(countriesList);
 		});
 	});
-	 
 }
 
