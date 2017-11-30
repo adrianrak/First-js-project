@@ -11,17 +11,22 @@ function searchCountries() {
 		method: 'GET',
 		success: showCountriesList
 	});
+	console.log(countryName);
 }
 
 function showCountriesList(resp) {
 	countriesList.empty();
     resp.forEach(function(item) {
-		var list = $('<button>').text('country name: ' + item.name).appendTo(countriesList);
-		list.click(function() {
-			list.empty();
-			$('<li>').text('capital: ' + item.capital).appendTo(countriesList);
-			$('<li>').text('language: ' + item.languages).appendTo(countriesList);
-		});
+		var countryName = $('#country-name').val();
+		if (countryName === item.name) {
+			var list = $('<button>').text('country name: ' + item.name).appendTo(countriesList);
+			list.click(function() {
+				list.empty();
+				$('<li>').text('capital: ' + item.capital).appendTo(countriesList);
+				$('<li>').text('language: ' + item.languages).appendTo(countriesList);
+			});
+		} else  $('<li>').text('Please enter a valid name for your country.').appendTo(countriesList);
+		console.log(item.name);
 	});
 }
 
