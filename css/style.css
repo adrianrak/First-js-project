@@ -93,6 +93,9 @@ header h1 {
 .btn-delete:hover {
     transform: scale(1.2);
 }
+.btn-edit {
+    display: flex;
+}
 .add-card {
     position: absolute;
     margin-left: 230px;

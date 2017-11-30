@@ -11,9 +11,26 @@ function Column(id, name) {
 		var $columnCardList = $('<ul>').addClass('column-card-list');
 		var $columnDelete = $('<button>').addClass('btn-delete').text('x');
 		var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
-
+		var $editColumn = $('<button>').addClass('btn-edit').text('Edit name column');
+		console.log($editColumn);
 		$columnDelete.click(function() {
 			self.removeColumn();
+		});
+		$editColumn.click(function() {
+			var self = this;
+			var newName = prompt('Enter new name');
+			$.ajax( {
+				url: baseUrl + '/columm/' + self.id,
+				method: 'PUT',
+				data: {
+					name: newName
+				},
+				succes: function(response) {
+					// self.$columnTitle('.column-title').text(name);
+					// self.name = newName;
+				}
+			});
+			
 		});
 		$columnAddCard.click(function(event) {
 			var cardName = prompt('Enter the name of the card');
@@ -32,16 +49,14 @@ function Column(id, name) {
 					}		
 				}
 			});
-			// if (cardName != null) {
-			// 	self.addCard(new Card(cardName));
-			// };
 		});
 			
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		$column.append($columnTitle)
 			.append($columnDelete)
 			.append($columnAddCard)
-			.append($columnCardList);
+			.append($columnCardList)
+			.append($editColumn);
 		return $column;
 		}
 	}
@@ -55,8 +70,9 @@ function Column(id, name) {
 			  url: baseUrl + '/column/' + self.id,
 			  method: 'DELETE',
 			  success: function(response){
-				self.element.remove();
+				self.$element.remove();
 			  }
 			});
-		}
+		},
+		
 	};
