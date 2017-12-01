@@ -12,26 +12,15 @@ function Column(id, name) {
 		var $columnDelete = $('<button>').addClass('btn-delete').text('x');
 		var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
 		var $editColumn = $('<button>').addClass('btn-edit').text('Edit name column');
-		console.log($editColumn);
+
 		$columnDelete.click(function() {
 			self.removeColumn();
 		});
+		// $editColumn.click(function() {
+		
 		$editColumn.click(function() {
-			var self = this;
-			var newName = prompt('Enter new name');
-			$.ajax( {
-				url: baseUrl + '/columm/' + self.id,
-				method: 'PUT',
-				data: {
-					name: newName
-				},
-				succes: function(response) {
-					// self.$columnTitle('.column-title').text(name);
-					// self.name = newName;
-				}
-			});
-			
-		});
+            self.columnEdit();
+        });
 		$columnAddCard.click(function(event) {
 			var cardName = prompt('Enter the name of the card');
 			event.preventDefault();
@@ -74,5 +63,23 @@ function Column(id, name) {
 			  }
 			});
 		},
-		
+		columnEdit: function() {
+			var self = this;
+			var newName = prompt('Enter new name of this column');
+			if (newName !== self.name) {
+				$.ajax({
+					url: baseUrl + '/column/' + self.id,
+					method: 'PUT',
+					data: {
+						name: newName
+					},
+					success: function(response) {
+						self.$element.children('.column-title').text(newName);
+						self.name = newName;
+					}
+				});
+			} else this.name; 
+		} 
 	};
+	
+	
