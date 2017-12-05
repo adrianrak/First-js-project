@@ -1,10 +1,10 @@
 function Column(id, name) {
 	var self = this;
-	
 	this.id = id;
+
 	this.name = name;
 	this.$element = createColumn();
-
+console.log('column id: ' + this.id);
 	function createColumn() {
 		var $column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
@@ -16,7 +16,7 @@ function Column(id, name) {
 		$columnDelete.click(function() {
 			self.removeColumn();
 		});
-		// $editColumn.click(function() {
+
 		
 		$editColumn.click(function() {
             self.columnEdit();
@@ -39,7 +39,6 @@ function Column(id, name) {
 				}
 			});
 		});
-			
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		$column.append($columnTitle)
 			.append($columnDelete)
@@ -78,8 +77,10 @@ function Column(id, name) {
 						self.name = newName;
 					}
 				});
-			} else this.name; 
-		} 
+			} else this.name;	
+		}
+		
 	};
 	
-	
+	function ColumnID(columnId) {
+	}
