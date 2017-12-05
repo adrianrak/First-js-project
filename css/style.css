@@ -95,6 +95,10 @@ header h1 {
 }
 .btn-edit {
     display: flex;
+    background-color: #660202;
+    color: #D1D2D4;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .add-card {
     position: absolute;
@@ -110,3 +114,9 @@ header h1 {
 .add-card:hover {
     transform: scale(1.2);
 } 
+.edit-card {
+    background-color: #660202;
+    color: #D1D2D4;
+    border-radius: 5px;
+    cursor: pointer;
+}

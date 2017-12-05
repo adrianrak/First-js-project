@@ -1,10 +1,9 @@
 function Column(id, name) {
 	var self = this;
 	this.id = id;
-
 	this.name = name;
 	this.$element = createColumn();
-console.log('column id: ' + this.id);
+
 	function createColumn() {
 		var $column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
@@ -24,20 +23,20 @@ console.log('column id: ' + this.id);
 		$columnAddCard.click(function(event) {
 			var cardName = prompt('Enter the name of the card');
 			event.preventDefault();
-			$.ajax({
-				url: baseUrl + '/card',
-				method: 'POST',
-				data: {
-				name: cardName,
-				bootcamp_kanban_column_id: self.id
-				},
-				success: function(response) {
-					var card = new Card(response.id, cardName);
-					if (cardName != null) {
-						self.addCard(card);
-					}		
-				}
-			});
+			if (cardName != null) {
+				$.ajax({
+					url: baseUrl + '/card',
+					method: 'POST',
+					data: {
+					name: cardName,
+					bootcamp_kanban_column_id: self.id
+					},
+					success: function(response) {
+						var card = new Card(response.id, cardName);
+							self.addCard(card);		
+					}
+				});
+			}
 		});
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		$column.append($columnTitle)
@@ -65,7 +64,7 @@ console.log('column id: ' + this.id);
 		columnEdit: function() {
 			var self = this;
 			var newName = prompt('Enter new name of this column');
-			if (newName !== self.name) {
+			if (newName !== null) {
 				$.ajax({
 					url: baseUrl + '/column/' + self.id,
 					method: 'PUT',
@@ -81,6 +80,4 @@ console.log('column id: ' + this.id);
 		}
 		
 	};
-	
-	function ColumnID(columnId) {
-	}
+
