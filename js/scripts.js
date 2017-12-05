@@ -20,7 +20,7 @@ function showCountriesList(resp) {
     resp.forEach(function(item) {
 		var countryName = $('#country-name').val();
 	
-        if (item.name.toLowerCase().indexOf(countryName) > -1) {
+        if (item.name.toLowerCase().indexOf(countryName.toLowerCase()) > -1) {
 			var listItem = $('<ul>').text(item.name).appendTo(countriesList);
 			$('<li>').text('capital: ' + item.capital).appendTo(listItem);
 			$('<li>').text('language: ' + item.languages).appendTo(listItem);
