@@ -49,6 +49,7 @@ Card.prototype = {
 					bootcamp_kanban_column_id: self.columnId
 				},
 				success: function(response) {
+					console.log('coś');
 					self.$element.children('.card-description').text(newName);
 					self.name = newName;
 				}
