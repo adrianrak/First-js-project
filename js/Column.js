@@ -25,7 +25,7 @@ function Column(id, name) {
 			event.preventDefault();
 			if (cardName != null) {
 				$.ajax({
-					url: baseUrl + '/card',
+					url: baseUrl + '/card/',
 					method: 'POST',
 					data: {
 					name: cardName,

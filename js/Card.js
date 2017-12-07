@@ -48,13 +48,11 @@ Card.prototype = {
 					name: newName,
 					bootcamp_kanban_column_id: self.columnId
 				},
-				succes: function(response) {
+				success: function(response) {
 					self.$element.children('.card-description').text(newName);
 					self.name = newName;
 				}
 			});
 		} else this.name;	
-		console.log('newName: ' + newName);
-		console.log('self.name: ' + self.name);
 	}
 };
