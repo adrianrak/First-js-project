@@ -35,7 +35,7 @@ var Movie = React.createClass({
                     desc: this.props.movie.desc
                 }),
                 React.createElement(movieImg, {
-                    src: this.props.movie.img
+                    img: this.props.movie.img
                 })
             )
          );
@@ -79,8 +79,7 @@ var movieList = React.createClass({
     render: function() {
         return (
             React.createElement('ul', {},  this.props.movies.map(function(movie) {
-                return 
-                    React.createElement(Movie, {key: movie.id, movie: movie});
+                return React.createElement(Movie, {key: movie.id, movie: movie});
             }))
         );
     }
