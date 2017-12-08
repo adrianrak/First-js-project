@@ -57,3 +57,20 @@ Card.prototype = {
 		} else this.name;	
 	}
 };
+// dragItem = function(itemId, itemName, columnId) {
+// 	var self = this;
+// 	this.itemId = itemId;
+// 	this.itemName = itemName;
+// 	this.columnId = columnId;
+// 	$.ajax({
+// 		url: baseUrl + '/card/' + self.itemId,
+// 		method: 'PUT',
+// 		data: {
+// 			name: self.itemName,
+// 			bootcamp_kanban_column_id: self.columnId
+// 		},
+// 		success: function(response) {
+// 			console.log('dragItem');
+// 		}
+// 	});
+// }

@@ -27,6 +27,33 @@ $('.create-column').click(function() {
 	function initSortable() {
 		$('.column-card-list').sortable({
 			connectWith: '.column-card-list',
-			placeholder: 'card-placeholder'
+			placeholder: 'card-placeholder',
+			receive: function(event, ui) {
+				$.ajax({
+					url: baseUrl + '/card/' + ui.item.id,
+					method: 'PUT',
+					data: {
+						name: $(this).text(),
+						bootcamp_kanban_column_id: ui.item.parents()[0].id
+					},
+					
+					success: function(response) {
+						console.log('sortable');
+					}
+					
+				});
+				console.log(ui.item.parents()[0].id);
+				// itemId = ui.item.id;
+				// itemName = ui.item.innerText;
+				// columnId = ui.item.columnId;
+				// dragItem(itemId, itemName, columnId);
+				// console.log('event: ' + event);
+				// console.log('ui: ' + ui);
+				// console.log('itemId: ' + ui.item.id);
+				// console.log('itemName: ' + ui.item.innerText);
+				// console.log('columnId: ' + ui.item.columnId);
+			}
+			
 		}).disableSelection();
+		
 	}
