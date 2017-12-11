@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+    margin: 0;
+    background-color: #3B5998;
+}
+.contactForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px;
+}
+.contactForm input {
+    margin: 10px;
+    padding: 10px;
+}
+.contactForm button {
+    padding: 10px;
+    cursor: pointer;
+    background: #0919f6;
+    color: #FFFFFF;
+}
+.contactForm button:hover {
+    background: #FFFFFF;
+    color: #0919f6;
+}
+.contactItem {
+    background-color: #FFFFFF;
+    margin: 20px;
+    padding: 15px;
+    text-align: center;
+    color: #3B5998;
+    font-family: 'Oswald', sans-serif;
+}
+.contactsList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
