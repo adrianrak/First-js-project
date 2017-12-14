@@ -30,23 +30,24 @@ $('.create-column').click(function() {
 			connectWith: '.column-card-list',
 			placeholder: 'card-placeholder',
 			receive: function(event, ui) {
+				console.log('event', event.target.parentElement);
+				console.log('ui', ui.item[0]);
+				var item = ui.item[0];
+				var name = item.querySelector('p').innerText;
+				var column = event.target.parentElement;
+				console.log('name: ', name);
 				$.ajax({
-					url: baseUrl + '/card/' + ui.item[0].id,
+					url: baseUrl + '/card/' + item.id,
 					method: 'PUT',
 					data: {
-						name: ui.item[0].innerText,
-						bootcamp_kanban_column_id: ui.item[0].parentElement.id 
+						name: name,
+						bootcamp_kanban_column_id: column.id 
 					},
-					
 					success: function(response) {
 						console.log('sortable');
-					}
-					
+					}	
 				});
-				
-				console.log('ui: ' + ui);
-			}
-			
+			}		
 		}).disableSelection();
 		
 	}
