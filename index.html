@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Timer!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <div class='watch'>
+      <div id="app"></div>
+    <!-- <div class='watch'>
       <nav class="controls">
         <button class="button" id="start">Start</button>
         <button class="button" id="stop">Stop</button>
@@ -16,8 +18,11 @@
       <div class="stopwatch"></div>
       <button class="button" id="clean">Reset</button>
       <ul class="results"></ul>
-    </div>
-    
-    <script type="text/javascript" src="js/scripts.js"></script>
+    </div> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script type="text/babel" src="js/scripts.js"></script>
   </body>
 </html>
