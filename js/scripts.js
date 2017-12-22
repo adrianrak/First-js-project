@@ -89,9 +89,7 @@ function pad0(value) {
 class Results extends React.Component {
 	constructor(props) {
         super(props);
-        this.state = {
-            list: []
-        }
+        list: []
 	}
 
 	render() {
