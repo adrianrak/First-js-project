@@ -87,10 +87,10 @@ function pad0(value) {
 }
 
 class Results extends React.Component {
-	constructor(props) {
-        super(props);
-        list: []
-	}
+	//constructor(props) {
+        //super(props);
+        //list: [] 
+	//}
 
 	render() {
 		const listItems = this.props.list.map( (item) => <li key={item}>{item}</li> );
